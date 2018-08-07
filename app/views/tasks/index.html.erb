@@ -1,11 +1,11 @@
 <div class="wrapper">
   <div class="container">
     <h1>My tasks</h1>
-      <% @tasks.each do |t| %>
-        <% if t.completed == true %>
-          <h3><input type="checkbox" checked> <%= t.title %></h3>
+      <% @tasks.each do |task| %>
+        <% if task.completed == true %>
+          <h2><input type="checkbox" checked> <%= link_to task.title, task %></h2>
         <% else %>
-          <h3><input type="checkbox"> <%= t.title %></h3>
+          <h2><input type="checkbox"> <%= link_to task.title, task %></h2>
       <% end %>
     <% end %>
   </div>

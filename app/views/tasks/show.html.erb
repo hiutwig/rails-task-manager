@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <div class="container">
+    <h1><%= @task.title %></h1>
+    <div class="row">
+      <h3><%= @task.details %></h3>
+    </div>
+      <% if @task.completed == true %>
+        <p><input type="checkbox" checked> This task is completed</p>
+      <% else %>
+        <p><input type="checkbox"> This task is not completed</p>
+      <% end %>
+        <p><%= link_to "Back to tasks", tasks_path %></p>
+  </div>
+</div>
