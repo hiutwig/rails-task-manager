@@ -8,12 +8,14 @@ class TasksController < ApplicationController
   end
 
   def new           # GET /tasks/new
-    @tasks = Task.all
+    @task = Task.new
   end
 
   def create        # POST /tasks
     @task = Task.new(task_params)
     @task.save
+
+    redirect_to tasks_path
   end
 
   def edit          # GET /tasks/:id/edit
@@ -26,4 +28,11 @@ class TasksController < ApplicationController
 
   def destroy       # DELETE /tasks/:id
   end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:title, :details, :completed)
+  end
+
 end
